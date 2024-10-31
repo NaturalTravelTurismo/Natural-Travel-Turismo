@@ -1,0 +1,89 @@
+/* Barra superior */
+.header-bar {
+    background-color: red;
+    color: white;
+    height: 2cm;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    z-index: 1000;
+}
+
+.header-title {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.menu-button {
+    position: absolute;
+    left: 20px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+}
+
+/* Menú lateral */
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgb(97, 97, 97);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 2cm;
+    z-index: 1001;
+}
+
+.sidebar a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    background-color: #575757;
+}
+
+.closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    color: white;
+}
+
+/* Contenido principal */
+#main-content {
+    margin-top: 3cm;
+    /* Espacio para la barra superior */
+    padding: 20px;
+}
+
+#main-content section {
+    margin-bottom: 0;
+    /* Sin espaciado entre secciones */
+}
+
+#main-content h1,
+#main-content h2 {
+    margin-bottom: 0;
+    /* Sin espaciado debajo de los encabezados */
+}
+
+#main-content p,
+#main-content ul {
+    margin-bottom: 0;
+    /* Sin espaciado debajo de párrafos y listas */
+}

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Reserva Natural Divisadero Largo</title>
+        <link rel="stylesheet" href="styles.css">
+        <style>
+            /* Barra superior */
+            .header-bar {
+                background-color: red;
+                color: white;
+                height: 2cm;
+                width: 100%;
+                position: fixed;
+                top: 0;
+                left: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: bold;
+                z-index: 1000;
+                font-size: 24px;
+                /* Aumentar tamaño de fuente */
+            }
+
+            .header-title {
+                font-weight: bold;
+                font-size: 26px;
+                /* Aumentar tamaño de fuente */
+            }
+
+            .menu-button {
+                position: absolute;
+                left: 20px;
+                background: none;
+                border: none;
+                font-size: 30px;
+                /* Aumentar tamaño de fuente */
+                cursor: pointer;
+                color: white;
+            }
+
+            /* Menú lateral */
+            .sidebar {
+                height: 100%;
+                width: 0;
+                position: fixed;
+                top: 0;
+                left: 0;
+                background-color: rgb(97, 97, 97);
+                overflow-x: hidden;
+                transition: 0.5s;
+                padding-top: 2cm;
+                z-index: 1001;
+            }
+
+            .sidebar a {
+                padding: 15px 20px;
+                /* Aumentar padding para mayor área clickeable */
+                text-decoration: none;
+                font-size: 20px;
+                /* Aumentar tamaño de fuente */
+                color: white;
+                display: block;
+                transition: 0.3s;
+            }
+
+            .sidebar a:hover {
+                background-color: #575757;
+            }
+
+            .closebtn {
+                position: absolute;
+                top: 0;
+                right: 25px;
+                font-size: 36px;
+                color: white;
+            }
+
+            /* Contenido principal */
+            #main-content {
+                margin-top: 3cm;
+                /* Espacio para la barra superior */
+                padding: 20px;
+                font-size: 18px;
+                /* Aumentar tamaño de fuente del contenido */
+            }
+
+            #main-content section {
+                margin-bottom: 0;
+                /* Sin espaciado entre secciones */
+            }
+
+            #main-content h1,
+            #main-content h2 {
+                margin-bottom: 0;
+                /* Sin espaciado debajo de los encabezados */
+            }
+
+            #main-content h1 {
+                font-size: 32px;
+                /* Aumentar tamaño de fuente del encabezado principal */
+            }
+
+            #main-content h2 {
+                font-size: 28px;
+                /* Aumentar tamaño de fuente de los subtítulos */
+            }
+
+            #main-content p,
+            #main-content ul {
+                margin-bottom: 0;
+                /* Sin espaciado debajo de párrafos y listas */
+            }
+
+            #main-content li {
+                font-size: 18px;
+                /* Aumentar tamaño de fuente de los elementos de lista */
+            }
+        </style>
+    </head>
+
+    <body>
+        <!-- Barra superior -->
+        <div class="header-bar">
+            <button class="menu-button" onclick="toggleMenu()">&#9776;</button>
+            <span class="header-title">Natural Travel</span>
+        </div>
+
+        <!-- Menú lateral -->
+        <div id="sidebar" class="sidebar">
+            <a href="javascript:void(0)" class="closebtn" onclick="toggleMenu()">&times;</a>
+            <a href="#inicio" onclick="toggleMenu()">Inicio</a>
+            <a href="#precios" onclick="toggleMenu()">Precios</a>
+            <a href="#galeria" onclick="toggleMenu()">Galería</a>
+            <a href="#informacion" onclick="toggleMenu()">Información de la Reserva</a>
+            <a href="#seccion-exclusiva" onclick="toggleMenu()">Sección Exclusiva</a>
+            <a href="#contactenos" onclick="toggleMenu()">Contáctenos</a>
+        </div>
+
+        <!-- Contenido principal -->
+        <div id="main-content">
+            <section id="inicio">
+                <h1>Bienvenidos a la Reserva Natural Divisadero Largo</h1>
+                <p>Explora la belleza y biodiversidad de uno de los lugares naturales más impresionantes de la región.
+                </p>
+            </section>
+
+            <section id="precios">
+                <h2>Precios</h2>
+                <ul>
+                    <li><strong>Transporte:</strong> $120.000</li>
+                    <li><strong>Guiada:</strong> $350.000</li>
+                    <li><strong>Comida:</strong> $60.000</li>
+                </ul>
+            </section>
+
+            <section id="galeria">
+                <h2>Galería</h2>
+                <p>Descubre la belleza de la Reserva a través de nuestra galería de fotos. Aquí podrás ver los
+                    impresionantes paisajes, la flora y fauna que la hacen un lugar especial.</p>
+            </section>
+
+            <section id="informacion">
+                <h2>Información de la Reserva</h2>
+                <p>La Reserva Natural Divisadero Largo ofrece una amplia variedad de flora, fauna y paisajes increíbles.
+                </p>
+            </section>
+
+            <section id="seccion-exclusiva">
+                <h2>Sección Exclusiva</h2>
+                <p>Esta es una sección exclusiva sobre la Reserva, accesible solo desde el menú lateral.</p>
+            </section>
+
+            <section id="contactenos">
+                <h2>Contáctenos</h2>
+                <p>Para más información, puedes contactarnos a través de nuestras redes sociales o al teléfono +54 123
+                    456 7890.</p>
+            </section>
+        </div>
+
+        <script>
+            // Función para alternar el menú lateral
+            function toggleMenu() {
+                const sidebar = document.getElementById("sidebar");
+                if (sidebar.style.width === "250px") {
+                    sidebar.style.width = "0"; // Cierra el menú
+                } else {
+                    sidebar.style.width = "250px"; // Abre el menú
+                }
+            }
+
+            // Agrega un desplazamiento suave a los enlaces
+            document.querySelectorAll('.sidebar a').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault(); // Evita el comportamiento predeterminado del enlace
+
+                    // Obtiene el destino del enlace
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+
+                    // Desplazamiento suave
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+
+                    // Cierra el menú
+                    toggleMenu();
+                });
+            });
+        </script>
+    </body>
+
+</html>
